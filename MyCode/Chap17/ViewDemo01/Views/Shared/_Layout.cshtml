@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ViewDemo01</title>
+
+    <link rel="stylesheet" href="~/lib/css/site.min.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+</head>
+<body>
+
+    <div class="m-1 p-1">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - ViewDemo01</p>
+        </footer>
+    </div>
+
+    <script src="~/lib/js/site.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

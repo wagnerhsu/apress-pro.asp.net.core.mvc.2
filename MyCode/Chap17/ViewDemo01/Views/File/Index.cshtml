@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+@if (ViewBag.Files != null)
+{
+    @foreach (var file in ViewBag.Files)
+    {
+        <a asp-action="Download" asp-route-filename=@file>@file</a>
+        <p></p>
+    }
+}
+<br>
+<form asp-action="UploadFile" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
