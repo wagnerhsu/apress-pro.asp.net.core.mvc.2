@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TagHelper01</title>
+
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body class="m-1 p-1">
+   <environment names="development">
+       <div class="m-1 p-1 bg-info"><h2>This is Development</h2></div>
+   </environment>
+    <environment names="production">
+        <div class="m-1 p-1 bg-danger"><h2>This is Production</h2></div>
+    </environment>
+    <div>@RenderBody()</div>
+</body>
+</html>

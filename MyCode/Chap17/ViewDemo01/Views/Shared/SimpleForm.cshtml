@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "SimpleForm";
+}
+
+<h2>SimpleForm</h2>
+<form method="post" asp-action="ReceiveForm">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input class="form-control" name="name" />
+    </div>
+    <div class="form-group">
+        <label for="name">City:</label>
+        <input class="form-control" name="city" />
+    </div>
+    <button class="btn btn-primary text-center" type="submit">Submit</button>
+</form>
