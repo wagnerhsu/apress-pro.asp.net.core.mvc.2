@@ -1,19 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using SportsStore.Controllers;
 using SportsStore.Models;
-using Xunit;
 using SportsStore.Models.ViewModels;
 using System;
-using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using Xunit;
 
-namespace SportsStore.Tests {
-
-    public class ProductControllerTests {
-
+namespace SportsStore.Tests
+{
+    public class ProductControllerTests
+    {
         [Fact]
-        public void Can_Paginate() {
+        public void Can_Paginate()
+        {
             // Arrange
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns((new Product[] {
@@ -39,8 +39,8 @@ namespace SportsStore.Tests {
         }
 
         [Fact]
-        public void Can_Send_Pagination_View_Model() {
-
+        public void Can_Send_Pagination_View_Model()
+        {
             // Arrange
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns((new Product[] {
@@ -68,8 +68,8 @@ namespace SportsStore.Tests {
         }
 
         [Fact]
-        public void Can_Filter_Products() {
-
+        public void Can_Filter_Products()
+        {
             // Arrange
             // - create the mock repository
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -97,7 +97,8 @@ namespace SportsStore.Tests {
         }
 
         [Fact]
-        public void Generate_Category_Specific_Product_Count() {
+        public void Generate_Category_Specific_Product_Count()
+        {
             // Arrange
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns((new Product[] {
@@ -126,8 +127,5 @@ namespace SportsStore.Tests {
             Assert.Equal(1, res3);
             Assert.Equal(5, resAll);
         }
-
-
-
     }
 }

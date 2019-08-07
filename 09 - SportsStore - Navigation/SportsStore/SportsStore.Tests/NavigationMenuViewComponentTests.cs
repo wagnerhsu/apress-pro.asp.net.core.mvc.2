@@ -1,19 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.AspNetCore.Routing;
 using Moq;
 using SportsStore.Components;
 using SportsStore.Models;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Routing;
 
-namespace SportsStore.Tests {
-
-    public class NavigationMenuViewComponentTests {
-
+namespace SportsStore.Tests
+{
+    public class NavigationMenuViewComponentTests
+    {
         [Fact]
-        public void Can_Select_Categories() {
+        public void Can_Select_Categories()
+        {
             // Arrange
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns((new Product[] {
@@ -36,8 +37,8 @@ namespace SportsStore.Tests {
         }
 
         [Fact]
-        public void Indicates_Selected_Category() {
-
+        public void Indicates_Selected_Category()
+        {
             // Arrange
             string categoryToSelect = "Apples";
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
@@ -47,8 +48,10 @@ namespace SportsStore.Tests {
             }).AsQueryable<Product>());
             NavigationMenuViewComponent target =
                 new NavigationMenuViewComponent(mock.Object);
-            target.ViewComponentContext = new ViewComponentContext {
-                ViewContext = new ViewContext {
+            target.ViewComponentContext = new ViewComponentContext
+            {
+                ViewContext = new ViewContext
+                {
                     RouteData = new RouteData()
                 }
             };
@@ -61,6 +64,5 @@ namespace SportsStore.Tests {
             // Assert
             Assert.Equal(categoryToSelect, result);
         }
-
     }
 }
